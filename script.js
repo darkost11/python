@@ -1,10 +1,10 @@
 /** @type {HTMLCanvasElement} */
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-const width = canvas.width = 560;
-const height = canvas.height = 840;
+const width = canvas.width = 480;
+const height = canvas.height = 720;
 
-const squareSize = 70;
+const squareSize = 60;
 const squareColor = "green";
 const appleColor = "red";
 const lineColor = "black";
