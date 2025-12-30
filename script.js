@@ -1,10 +1,10 @@
 /** @type {HTMLCanvasElement} */
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-const width = canvas.width = 480;
-const height = canvas.height = 720;
+const width = canvas.width = 464;
+const height = canvas.height = 696;
 
-const squareSize = 60;
+const squareSize = 58;
 const squareColor = "green";
 const appleColor = "red";
 const lineColor = "black";
@@ -87,8 +87,6 @@ const tail = new Tail(0, 0);
 const parts = [head, tail];
 
 let lastTime = Date.now();
-const INTERVAL_MS = 300;
-
 
 function isTimeElapsed(){
     currentTime = Date.now();
@@ -197,13 +195,6 @@ function summonApple(){
         if (!occupied) break;
     }
     return new Apple(x, y);
-}
-
-function eatApple(){
-    apple = summonApple();
-    let newPart = new Square(tail.x, tail.y);
-    newPart.state = tail.state;
-    parts.splice(parts.length-1, 1, newPart, tail);
 }
 
 mainLoop();

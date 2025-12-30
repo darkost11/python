@@ -1,13 +1,39 @@
+.canvas-container {
+    position: absolute;
+    width: 464px;
+    height: 696px;
+    
+}
 #canvas {
    position: absolute;
-   width: 480px;
-   height: 720px;
+   width: 464px;
+   height: 696px;
    border: solid 6px black;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
 }
 
+.apple-count-container {
+    position: absolute;
+    border: 2px green solid;
+    width: 160px;
+    height: 70px;
+    left: 105%;
+}
+
+#apple {
+    position: absolute;
+    right: 0%;
+    width: 58px;
+    height: 58px;
+}
+
+.apple-count {
+    position: absolute;
+    border: 2px solid red;
+    font-size: 40px;
+    top: 48%;
+    transform: translateY(-50%);
+    
+}
 body {
     background-color: burlywood;
 }
