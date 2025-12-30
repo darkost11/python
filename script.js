@@ -9,11 +9,19 @@ const squareColor = "green";
 const appleColor = "red";
 const lineColor = "black";
 
+const States = {
+    right: 0,
+    left: 180,
+    up: -90,
+    down: 90
+}
+
 class Square{
     constructor(x, y){
         this.x = x;
         this.y = y;
         this.color = squareColor;
+        this.state = States.right;
     }
     draw(){
         ctx.beginPath();
@@ -37,23 +45,50 @@ class Square{
 class Apple extends Square{
     constructor(x, y){
         super(x, y);
-        this.color = appleColor;
+        this.image = new Image();
+        this.image.src = "assets/apple.png";
+    }
+    draw(){
+        ctx.beginPath();
+        ctx.drawImage(this.image, 0, 0, 160, 160, this.x, this.y, squareSize, squareSize);
+        ctx.closePath();
     }
 }
 
-const head = new Square(squareSize*1, 0);
-const prehead = new Square(0, 0);
-const parts = [head, prehead];
+class Head extends Square{
+    constructor(x, y){
+        super(x, y);
+        this.image = new Image();
+        this.image.src = "assets/snake.png";
+        this.frameX = 70;
+    }
+    draw(){
+        const rad = this.state * Math.PI / 180;
+        ctx.save();
+        ctx.translate(this.x + squareSize/2, this.y + squareSize/2);
+        ctx.rotate(rad);
+        ctx.beginPath();
+        ctx.drawImage(this.image, this.frameX, 0, 70, 70, -squareSize/2, -squareSize/2, squareSize, squareSize);
+        ctx.closePath();
+        ctx.restore();
+    }
+}
+
+class Tail extends Head {
+    constructor(x, y){
+        super(x, y);
+        this.frameX = 0;
+    }
+    
+}
+
+const head = new Head(squareSize, 0);
+const tail = new Tail(0, 0);
+const parts = [head, tail];
 
 let lastTime = Date.now();
 const INTERVAL_MS = 300;
-const States = {
-    right: "right",
-    left: "left",
-    up: "up",
-    down: "down"
-}
-let currentState = States.right;
+
 
 function isTimeElapsed(){
     currentTime = Date.now();
@@ -64,8 +99,10 @@ function isTimeElapsed(){
     return 0;
 }
 
+let lastState = States.right;
 function move(){
-    switch(currentState){
+    lastState = head.state;
+    switch(head.state){
         case States.right:
             moveParts();
             head.x += squareSize;
@@ -90,6 +127,7 @@ function moveParts(){
         let part = parts[i];
         let nextPart = parts[i-1];
         part.moveTo(nextPart.x, nextPart.y);
+        part.state = nextPart.state;
     }
 }
 
@@ -115,6 +153,10 @@ function collisionDetected(){
 function update(){
     ctx.clearRect(0, 0, width, height);
     draw();
+    if (parts.length >= 12*8){
+        alert("You won!")
+        location.reload();
+    }
     if (collisionDetected()){
         alert("Game over!");
         location.reload();
@@ -133,14 +175,14 @@ function mainLoop(){
 
 document.addEventListener("keydown", (event) => {
 
-    if ((event.key === "d" || event.key === "D") && currentState !== States.left) 
-        currentState = States.right;
-    if ((event.key === "a" || event.key === "A") && currentState !== States.right)
-        currentState = States.left; 
-    if ((event.key === "s" || event.key === "S") && currentState !== States.up)
-        currentState = States.down;  
-    if ((event.key === "w" || event.key === "W") && currentState !== States.down) 
-        currentState = States.up;
+    if ((event.key === "d" || event.key === "D") && lastState != States.left)
+        head.state = States.right;
+    else if ((event.key === "a" || event.key === "A") && lastState != States.right)
+        head.state = States.left; 
+    else if ((event.key === "s" || event.key === "S") && lastState != States.up)
+        head.state = States.down;  
+    else if ((event.key === "w" || event.key === "W") && lastState != States.down) 
+        head.state = States.up;
         
 })
 
@@ -159,9 +201,9 @@ function summonApple(){
 
 function eatApple(){
     apple = summonApple();
-    let tail = parts.at(-1);
-    let newTail = new Square(tail.x, tail.y);
-    parts.push(newTail);
+    let newPart = new Square(tail.x, tail.y);
+    newPart.state = tail.state;
+    parts.splice(parts.length-1, 1, newPart, tail);
 }
 
 mainLoop();
