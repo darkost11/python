@@ -2,14 +2,16 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const canvasContainer = document.querySelector(".canvas-container");
-console.log(canvasContainer)
+let canvasWidth = numColumns * cellSize;
+let canvasHeight = numRows * cellSize;
 canvasContainer.style.setProperty("width", `${canvasWidth}px`);
 canvasContainer.style.setProperty("height", `${canvasHeight}px`);
 canvas.style.setProperty("width", `${canvasWidth}px`);
 canvas.style.setProperty("height", `${canvasHeight}px`);
 canvas.width = canvasWidth;
 canvas.height = canvasHeight;
-const spriteSize = 58;
+
+const spriteSize = cellSize;
 
 const head = new RotatingSegment(spriteSize, 0, Sprites.head);
 const tail = new RotatingSegment(0, 0, Sprites.tailOdd);
@@ -34,7 +36,7 @@ function isTimeElapsed(){
 function update(){
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     draw();
-    if (parts.length >= 12*8){
+    if (parts.length >= numRows * numColumns){
         storeData();
         renderData();
         alert("You won!")

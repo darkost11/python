@@ -1,6 +1,7 @@
 
-let canvasWidth = 464;
-let canvasHeight = 696;
+const cellSize = 58;
+let numRows = 12;
+let numColumns = 8;
 let stopSnake = 0;
 let INTERVAL_MS = 300;
 
