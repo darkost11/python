@@ -11,9 +11,10 @@ const parts = [head, tail];
 let apple = summonApple();
 
 let lastTime = Date.now();
+
 function isTimeElapsed(){
     currentTime = Date.now();
-    if (currentTime - lastTime >= INTERVAL_MS) {
+    if (currentTime - lastTime >= INTERVAL_MS && !stopSnake) {
         lastTime = currentTime;
         return 1;
     }

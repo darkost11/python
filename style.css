@@ -2,7 +2,7 @@
     position: relative;
     width: 464px;
     height: 696px;
-    left: 100px;
+    left: 80px;
     
 }
 #canvas {
@@ -24,11 +24,24 @@
 
 #apple{
     position: absolute;
-    width: 58px;
-    height: 58px;
+    width: 54px;
+    height: 54px;
     transform: translateY(-10px);
 }
+.pause{
+    position: absolute;
+    left: -50px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
 
+.pause img {
+    width: 60px;
+    height: 60px;
+    transform: translate(-16%, -16%);
+    
+}
 .stats{
     position: absolute;
     font-size: 22px;
