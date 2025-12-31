@@ -13,8 +13,8 @@ function summonApple(){
 
 function eatApple(){
     apple = summonApple();
-    let isSegEven = parts.length % 2;
-    let sprite = (isSegEven) ? Sprites.segEven : Sprites.segOdd;
+    let isSegEven = parts.length % 2 === 0;
+    let sprite = (isSegEven) ? Sprites.segEven : Sprites.segOdd
     let newPart = new Segment(tail.x, tail.y, sprite);
     newPart.state = tail.state;
     newPart.hidden = true;

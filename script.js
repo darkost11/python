@@ -1,8 +1,14 @@
 /** @type {HTMLCanvasElement} */
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-const width = canvas.width = 464;
-const height = canvas.height = 696;
+const canvasContainer = document.querySelector(".canvas-container");
+console.log(canvasContainer)
+canvasContainer.style.setProperty("width", `${canvasWidth}px`);
+canvasContainer.style.setProperty("height", `${canvasHeight}px`);
+canvas.style.setProperty("width", `${canvasWidth}px`);
+canvas.style.setProperty("height", `${canvasHeight}px`);
+canvas.width = canvasWidth;
+canvas.height = canvasHeight;
 const spriteSize = 58;
 
 const head = new RotatingSegment(spriteSize, 0, Sprites.head);
@@ -12,7 +18,6 @@ const parts = [head, tail];
 let hiddenSegment = null;
 let tailSprite = Sprites.tailEven;
 let lastState = States.right;
-
 
 let apple = summonApple();
 let lastTime = Date.now();
@@ -27,7 +32,7 @@ function isTimeElapsed(){
 }
 
 function update(){
-    ctx.clearRect(0, 0, width, height);
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     draw();
     if (parts.length >= 12*8){
         storeData();

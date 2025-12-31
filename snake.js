@@ -6,10 +6,10 @@ const States = {
 }
 
 const Sprites = {
-    tailEven: 0,
-    tailOdd: 70,
-    segEven: 140,
-    segOdd: 210,
+    tailOdd: 0,
+    tailEven: 70,
+    segOdd: 140,
+    segEven: 210,
     head: 280    
 }
 
@@ -104,8 +104,8 @@ function isCollisionDetected(){
         let part = parts[i];
         if (part.collides(head)) return true;
     }
-    if ((head.x < 0) || (head.x >= width) ||
-        (head.y < 0) || (head.y) >= height)
+    if ((head.x < 0) || (head.x >= canvasWidth) ||
+        (head.y < 0) || (head.y) >= canvasHeight)
         return true;
     return false;
 }
