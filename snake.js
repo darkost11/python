@@ -5,20 +5,29 @@ const States = {
     down: 90
 }
 
-let lastState = States.right;
+const Sprites = {
+    tailEven: 0,
+    tailOdd: 70,
+    segEven: 140,
+    segOdd: 210,
+    head: 280    
+}
 
-class Square{
-    constructor(x, y){
+class Segment{
+    constructor(x, y, sprite){
         this.x = x;
         this.y = y;
-        this.color = squareColor;
         this.state = States.right;
+        this.sprite = sprite;
+        this.image = new Image();
+        this.image.src = "assets/snake.png";
+        this.size = 70;
+        this.hidden = false;
     }
+
     draw(){
         ctx.beginPath();
-        ctx.rect(this.x, this.y, squareSize, squareSize)
-        ctx.fillStyle = this.color;
-        ctx.fill();
+        ctx.drawImage(this.image, this.sprite, 0, this.size, this.size, this.x, this.y, spriteSize, spriteSize);
         ctx.closePath();
     }
     moveTo(newX, newY){
@@ -33,42 +42,27 @@ class Square{
     }
 }
 
-class Apple extends Square{
-    constructor(x, y){
-        super(x, y);
-        this.image = new Image();
-        this.image.src = "assets/apple.png";
-    }
-    draw(){
-        ctx.beginPath();
-        ctx.drawImage(this.image, 0, 0, 160, 160, this.x, this.y, squareSize, squareSize);
-        ctx.closePath();
-    }
-}
-
-class Head extends Square{
-    constructor(x, y){
-        super(x, y);
-        this.image = new Image();
-        this.image.src = "assets/snake.png";
-        this.spriteX = 70;
+class RotatingSegment extends Segment{
+    constructor(x, y, sprite){
+        super(x, y, sprite);
     }
     draw(){
         const rad = this.state * Math.PI / 180;
         ctx.save();
-        ctx.translate(this.x + squareSize/2, this.y + squareSize/2);
+        ctx.translate(this.x + spriteSize/2, this.y + spriteSize/2);
         ctx.rotate(rad);
         ctx.beginPath();
-        ctx.drawImage(this.image, this.spriteX, 0, 70, 70, -squareSize/2, -squareSize/2, squareSize, squareSize);
+        ctx.drawImage(this.image, this.sprite, 0, this.size, this.size, -spriteSize/2, -spriteSize/2, spriteSize, spriteSize);
         ctx.closePath();
         ctx.restore();
     }
 }
 
-class Tail extends Head {
+class Apple extends Segment{
     constructor(x, y){
-        super(x, y);
-        this.spriteX = 0;
+        super(x, y, 0);
+        this.image.src = "assets/apple.png";
+        this.size = 160;
     }
 }
 
@@ -77,21 +71,23 @@ function move(){
     switch(head.state){
         case States.right:
             moveParts();
-            head.x += squareSize;
+            head.x += spriteSize;
             break;
         case States.left:
             moveParts();
-            head.x -= squareSize;
+            head.x -= spriteSize;
             break;
         case States.up:
             moveParts();
-            head.y -= squareSize;
+            head.y -= spriteSize;
             break;
         case States.down:
             moveParts();
-            head.y += squareSize;
+            head.y += spriteSize;
             break; 
     }
+    if (hiddenSegment) hiddenSegment.hidden = false;
+    tail.sprite = tailSprite;
 }
 
 function moveParts(){
@@ -116,7 +112,7 @@ function isCollisionDetected(){
 
 function draw(){
     parts.forEach(part => {
-        part.draw();
+        if (!part.hidden) part.draw();
     })
     apple.draw();
 }

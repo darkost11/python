@@ -3,13 +3,18 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const width = canvas.width = 464;
 const height = canvas.height = 696;
-const squareSize = 58;
+const spriteSize = 58;
 
-const head = new Head(squareSize, 0);
-const tail = new Tail(0, 0);
+const head = new RotatingSegment(spriteSize, 0, Sprites.head);
+const tail = new RotatingSegment(0, 0, Sprites.tailOdd);
 const parts = [head, tail];
-let apple = summonApple();
 
+let hiddenSegment = null;
+let tailSprite = Sprites.tailEven;
+let lastState = States.right;
+
+
+let apple = summonApple();
 let lastTime = Date.now();
 
 function isTimeElapsed(){

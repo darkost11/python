@@ -1,8 +1,8 @@
 function summonApple(){
     let x, y;
     while (true) {
-        x = Math.floor(Math.random()*8) * squareSize;
-        y = Math.floor(Math.random()*12) * squareSize;
+        x = Math.floor(Math.random()*8) * spriteSize;
+        y = Math.floor(Math.random()*12) * spriteSize;
         let occupied = parts.some(part => part.x === x 
             && part.y === y
         );
@@ -13,8 +13,14 @@ function summonApple(){
 
 function eatApple(){
     apple = summonApple();
-    let newPart = new Square(tail.x, tail.y);
+    let isSegEven = parts.length % 2;
+    let sprite = (isSegEven) ? Sprites.segEven : Sprites.segOdd;
+    let newPart = new Segment(tail.x, tail.y, sprite);
     newPart.state = tail.state;
+    newPart.hidden = true;
+    hiddenSegment = newPart;
+
+    tailSprite = (isSegEven) ? Sprites.tailOdd : Sprites.tailEven;
     parts.splice(parts.length-1, 1, newPart, tail);
     addApples();
 }
