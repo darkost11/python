@@ -21,7 +21,6 @@ function isTimeElapsed(){
     return 0;
 }
 
-
 function update(){
     ctx.clearRect(0, 0, width, height);
     draw();

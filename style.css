@@ -2,7 +2,7 @@
     position: relative;
     width: 464px;
     height: 696px;
-    left: 80px;
+    left: 60px;
     
 }
 #canvas {
@@ -14,7 +14,7 @@
 
 .apple-count {
     position: absolute;
-    left: 104%;
+    left: calc(100% + 20px);
     top: -0px
 
 }
@@ -45,11 +45,46 @@
 .stats{
     position: absolute;
     font-size: 22px;
-    left: 104%;
+    left: calc(100% + 20px);
     bottom: -10px;
-    width: 230px;
+    width: 200px;
     border: 2px red solid;
     background-color: rgba(0, 255, 255, 0.2);
+}
+
+.upgrades-container {
+    position: absolute;
+    left: calc(100% + 20px);
+    top: 40%;
+    transform: translateY(-50%);
+}
+#upgrades-title {
+    position: absolute;
+    font-size: 30px;
+    top: -40px;
+}
+.upgrades {
+    display: grid;
+    grid-template-rows: 100px 100px 100px;
+    grid-template-columns: 100px 100px;
+}
+
+.item {
+    background-color: aqua;
+    border: 2px red solid;
+}
+
+.item img {
+    width: 100px;
+    height: 100px;
+}
+.item span {
+    position: absolute;
+    color: white;
+}
+
+.item4 {
+    color: black;
 }
 
 body {
