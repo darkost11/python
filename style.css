@@ -1,39 +1,44 @@
 .canvas-container {
-    position: absolute;
+    position: relative;
     width: 464px;
     height: 696px;
+    left: 100px;
     
 }
 #canvas {
    position: absolute;
+   border: solid 6px black;
    width: 464px;
    height: 696px;
-   border: solid 6px black;
-}
-
-.apple-count-container {
-    position: absolute;
-    border: 2px green solid;
-    width: 160px;
-    height: 70px;
-    left: 105%;
-}
-
-#apple {
-    position: absolute;
-    right: 0%;
-    width: 58px;
-    height: 58px;
 }
 
 .apple-count {
     position: absolute;
-    border: 2px solid red;
-    font-size: 40px;
-    top: 48%;
-    transform: translateY(-50%);
-    
+    left: 104%;
+    top: -0px
+
 }
+.apple-count span {
+    font-size: 40px;
+}
+
+#apple{
+    position: absolute;
+    width: 58px;
+    height: 58px;
+    transform: translateY(-10px);
+}
+
+.stats{
+    position: absolute;
+    font-size: 22px;
+    left: 104%;
+    bottom: -10px;
+    width: 230px;
+    border: 2px red solid;
+    background-color: rgba(0, 255, 255, 0.2);
+}
+
 body {
     background-color: burlywood;
 }
