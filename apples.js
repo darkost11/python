@@ -4,6 +4,7 @@ let appleValue = upgradeData.appleUpgrade;
 class Apple extends Segment{
     constructor(x, y, isGolden){
         super(x, y, 0);
+        this.isGolden = isGolden;
         this.value = (upgradeData.lengthUpgrade - 1) 
             ? appleValue * Math.pow(2, Math.floor(1 + parts.length / (32 - 4*upgradeData.lengthUpgrade))) 
             : appleValue;
@@ -11,6 +12,7 @@ class Apple extends Segment{
         if (isGolden){
             this.image.src = "assets/golden-apple.png";
             this.size = 256;
+            this.value *= 2;
         } else {
             this.image.src = "assets/apple.png";
             this.size = 160;
@@ -33,17 +35,11 @@ function summonApple(){
 }
 
 function eatApple(){
-    apple = summonApple();
-    let isSegEven = parts.length % 2 === 0;
-    let sprite = (isSegEven) ? Sprites.segEven : Sprites.segOdd
-    let newPart = new Segment(tail.x, tail.y, sprite);
-    newPart.state = tail.state;
-    newPart.hidden = true;
-    hiddenSegment = newPart;
-
-    tailSprite = (isSegEven) ? Sprites.tailOdd : Sprites.tailEven;
-    parts.splice(parts.length-1, 1, newPart, tail);
+    timesIncrement++;
+    if (apple.isGolden) timesIncrement++;
     addApples(apple);
+    apple = summonApple();
+    
 }
 
 function addApples(apple){

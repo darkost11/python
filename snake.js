@@ -58,7 +58,26 @@ class RotatingSegment extends Segment{
     }
 }
 
+let timesIncrement = 0;
+function incrementSnake(){
+
+    let isSegEven = parts.length % 2 === 0;
+    let sprite = (isSegEven) ? Sprites.segEven : Sprites.segOdd
+    let newPart = new Segment(tail.x, tail.y, sprite);
+    newPart.state = tail.state;
+    newPart.hidden = true;
+    hiddenSegment = newPart;
+
+    tailSprite = (isSegEven) ? Sprites.tailOdd : Sprites.tailEven;
+    parts.splice(parts.length-1, 1, newPart, tail);
+}
+
 function move(){
+    if (timesIncrement > 0) {
+        incrementSnake();
+        timesIncrement--;
+        console.log(parts.length);
+    }
     lastState = head.state;
     switch(head.state){
         case States.right:

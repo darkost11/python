@@ -6,13 +6,14 @@ numCols += upgradeData.extendCanvasUpgrade - 1;
 
 let canvasWidth = numCols * cellSize;
 let canvasHeight = numRows * cellSize;
+
 updateCanvasSize();
 renderData();
 renderUpgradeData();
 
 const spriteSize = cellSize;
 const head = new RotatingSegment(spriteSize, 0, Sprites.head);
-const tail = new RotatingSegment(0, 0, Sprites.tailOdd);
+const tail = new RotatingSegment(0, 0, Sprites.tailEven);
 const parts = [head, tail];
 
 let hiddenSegment = null;
