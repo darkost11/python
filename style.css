@@ -15,7 +15,6 @@
 .apple-count {
     position: absolute;
     left: calc(100% + 20px);
-    top: -0px
 
 }
 .apple-count span {
@@ -28,6 +27,7 @@
     height: 54px;
     transform: translateY(-10px);
 }
+
 .pause{
     position: absolute;
     left: -50px;
@@ -48,14 +48,14 @@
     left: calc(100% + 20px);
     bottom: -10px;
     width: 200px;
-    border: 2px red solid;
+    border: 2px brown solid;
     background-color: rgba(0, 255, 255, 0.2);
 }
 
 .upgrades-container {
     position: absolute;
     left: calc(100% + 20px);
-    top: 40%;
+    top: 140px;
     transform: translateY(-50%);
 }
 #upgrades-title {
@@ -64,13 +64,15 @@
     top: -40px;
 }
 .upgrades {
+    position: absolute;
     display: grid;
     grid-template-rows: 100px 100px 100px;
     grid-template-columns: 100px 100px;
 }
 
 .item {
-    border: 2px red solid;
+    position: relative;
+    border: 2px brown solid;
     cursor: pointer;
 }
 
@@ -83,11 +85,46 @@
     color: white;
 }
 
-.multiplier {
+.item::after {
+    position: absolute;
+    content: attr(data-tooltip);
+    padding: 6px;
+    bottom: calc(100% + 6px);
+    background-color: brown;
+    color: wheat;
+    left: 50%;
+    transform: translate(-50%);
+    width: max-content;
+    max-width: 250px;
+    visibility: hidden;
+}
+
+.item:hover::after {
+    visibility: visible;
+}
+
+.multiplier { 
     top: 540px;
 }
 .multiplier span {
     font-weight: bold;
+}
+.multiplier::after {
+    position: absolute;
+    content: attr(data-tooltip);
+    padding: 6px;
+    bottom: calc(100% + 6px);
+    background-color: brown;
+    color: wheat;
+    left: 50%;
+    transform: translate(-50%);
+    width: max-content;
+    max-width: 90px;
+    visibility: hidden;
+}
+
+.multiplier:hover::after{
+    visibility: visible;
 }
 body {
     background-color: burlywood;
