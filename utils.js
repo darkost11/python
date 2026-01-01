@@ -1,7 +1,6 @@
 let INTERVAL_MS;
 updateSnakeSpeed();
 
-
 function updateCanvasSize(){
     canvasWidth = numCols * cellSize;
     canvasHeight = numRows * cellSize;
@@ -37,5 +36,15 @@ function updateSnakeSpeed(){
         case 4:
             INTERVAL_MS = UPGRADES.speedUpgrade.level4;
             break;
+        case 5:
+            INTERVAL_MS = UPGRADES.speedUpgrade.level5;
     }
+}
+
+if (RESET_UPGRADES){
+    resetUpgradeData();
+}
+
+if (RESET_PLAYER_DATA){
+    resetPlayerData();
 }

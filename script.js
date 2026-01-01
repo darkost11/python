@@ -2,10 +2,10 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const canvasContainer = document.querySelector(".canvas-container");
-numCols += upgradeData.extendCanvasUpgrade;
+numCols += upgradeData.extendCanvasUpgrade - 1;
+
 let canvasWidth = numCols * cellSize;
 let canvasHeight = numRows * cellSize;
-
 updateCanvasSize();
 renderData();
 renderUpgradeData();
@@ -62,13 +62,5 @@ document.addEventListener("keydown", (event) => {
         head.state = States.up;
         
 })
-
-if (RESET_UPGRADES){
-    resetUpgradeData();
-}
-
-if (RESET_PLAYER_DATA){
-    resetPlayerData();
-}
 
 mainLoop();
