@@ -58,14 +58,6 @@ class RotatingSegment extends Segment{
     }
 }
 
-class Apple extends Segment{
-    constructor(x, y){
-        super(x, y, 0);
-        this.image.src = "assets/apple.png";
-        this.size = 160;
-    }
-}
-
 function move(){
     lastState = head.state;
     switch(head.state){

@@ -70,8 +70,8 @@
 }
 
 .item {
-    background-color: aqua;
     border: 2px red solid;
+    cursor: pointer;
 }
 
 .item img {

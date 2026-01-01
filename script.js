@@ -2,17 +2,15 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const canvasContainer = document.querySelector(".canvas-container");
-let canvasWidth = numColumns * cellSize;
+numCols += upgradeData.extendCanvasUpgrade;
+let canvasWidth = numCols * cellSize;
 let canvasHeight = numRows * cellSize;
-canvasContainer.style.setProperty("width", `${canvasWidth}px`);
-canvasContainer.style.setProperty("height", `${canvasHeight}px`);
-canvas.style.setProperty("width", `${canvasWidth}px`);
-canvas.style.setProperty("height", `${canvasHeight}px`);
-canvas.width = canvasWidth;
-canvas.height = canvasHeight;
+
+updateCanvasSize();
+renderData();
+renderUpgradeData();
 
 const spriteSize = cellSize;
-
 const head = new RotatingSegment(spriteSize, 0, Sprites.head);
 const tail = new RotatingSegment(0, 0, Sprites.tailOdd);
 const parts = [head, tail];
@@ -22,21 +20,11 @@ let tailSprite = Sprites.tailEven;
 let lastState = States.right;
 
 let apple = summonApple();
-let lastTime = Date.now();
-
-function isTimeElapsed(){
-    currentTime = Date.now();
-    if (currentTime - lastTime >= INTERVAL_MS && !stopSnake) {
-        lastTime = currentTime;
-        return 1;
-    }
-    return 0;
-}
 
 function update(){
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     draw();
-    if (parts.length >= numRows * numColumns){
+    if (parts.length >= numRows * numCols){
         storeData();
         renderData();
         alert("You won!")
@@ -44,7 +32,6 @@ function update(){
         location.reload();
     }
     if (isCollisionDetected()){
-
         storeData();
         renderData();
         alert("Game over!");
@@ -75,5 +62,13 @@ document.addEventListener("keydown", (event) => {
         head.state = States.up;
         
 })
+
+if (RESET_UPGRADES){
+    resetUpgradeData();
+}
+
+if (RESET_PLAYER_DATA){
+    resetPlayerData();
+}
 
 mainLoop();
