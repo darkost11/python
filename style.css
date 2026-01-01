@@ -22,7 +22,7 @@
     font-size: 40px;
 }
 
-#apple{
+.apple-count img{
     position: absolute;
     width: 54px;
     height: 54px;
@@ -83,6 +83,12 @@
     color: white;
 }
 
+.multiplier {
+    top: 540px;
+}
+.multiplier span {
+    font-weight: bold;
+}
 body {
     background-color: burlywood;
 }

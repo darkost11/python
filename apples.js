@@ -1,4 +1,3 @@
-
 let appleValue = upgradeData.appleUpgrade;
 
 class Apple extends Segment{
@@ -28,8 +27,9 @@ function summonApple(){
         y = Math.floor(Math.random()*numRows) * spriteSize;
         let occupied = parts.some(part => part.x === x && part.y === y);
         if (!occupied){
-            if (Math.random() <= goldenChance) return new Apple(x, y, true);
-            return new Apple(x, y, false);
+            if (Math.random() <= goldenChance) return newApple = new Apple(x, y, true);
+            return newApple = new Apple(x, y, false);
+            
         }
     }
 }
@@ -39,7 +39,7 @@ function eatApple(){
     if (apple.isGolden) timesIncrement++;
     addApples(apple);
     apple = summonApple();
-    
+    renderAppleValue();
 }
 
 function addApples(apple){
@@ -54,5 +54,11 @@ function resetApples(){
     playerData.totalApples = 0;
     renderData();
     storeData();
+}
+
+function renderAppleValue(){
+    let appleMultiplier = document.querySelector(".multiplier");
+    appleMultiplier.querySelector("span").textContent = `${apple.value}x`;
+    appleMultiplier.querySelector("img").src = apple.image.src;
 }
 

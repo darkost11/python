@@ -21,6 +21,7 @@ let tailSprite = Sprites.tailEven;
 let lastState = States.right;
 
 let apple = summonApple();
+renderAppleValue();
 
 function update(){
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);

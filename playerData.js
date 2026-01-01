@@ -61,7 +61,7 @@ function resetUpgradeData(){
 
 const UPGRADES = {
     goldenAppleUpgrade: {maxLevel: 10, cost: 100, multiplier: 2},
-    lengthUpgrade: {maxLevel: 6, cost: 100, multiplier: 4},
+    lengthUpgrade: {maxLevel: 6, cost: 100, multiplier: 6},
     speedUpgrade: {maxLevel: 5, cost: 100, multiplier: 3, level1: 400, level2: 340, level3: 280, level4: 240, level5 : 220 },
     extendCanvasUpgrade: {maxLevel: 4, cost: 100, multiplier: 3},
     appleUpgrade: {maxLevel: 6, cost: 300, multiplier: 4}
