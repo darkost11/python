@@ -41,10 +41,3 @@ function updateSnakeSpeed(){
     }
 }
 
-if (RESET_UPGRADES){
-    resetUpgradeData();
-}
-
-if (RESET_PLAYER_DATA){
-    resetPlayerData();
-}
