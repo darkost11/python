@@ -39,12 +39,13 @@ function eatApple(){
     if (apple.isGolden) timesIncrement++;
     addApples(apple);
     apple = summonApple();
+    playerData.totalApples++;
+    storeData();
     renderAppleValue();
 }
 
 function addApples(apple){
     playerData.appleCount += apple.value;
-    playerData.totalApples++;
     renderData();
     storeData();
 }
@@ -62,3 +63,16 @@ function renderAppleValue(){
     appleMultiplier.querySelector("img").src = apple.image.src;
 }
 
+function getUpgradeCost(upgradeEl){
+    return parseInt(upgradeEl.querySelector(".upgrade-cost").textContent);
+}
+
+function buyUpgrade(upgradeEl){
+    if (playerData.appleCount >= getUpgradeCost(upgradeEl)) {
+        playerData.appleCount -= getUpgradeCost(upgradeEl);
+        renderData();
+        storeData();
+        return 1;
+    }
+    return 0;
+}

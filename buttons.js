@@ -20,19 +20,21 @@ document.addEventListener("keydown", event => {
 // Upgrade buttons
 
 goldenAppleUpgradeEl.addEventListener("click", event => {
+
     let level = upgradeData.goldenAppleUpgrade;
     let maxLevel = UPGRADES.goldenAppleUpgrade.maxLevel;
-    if (level < maxLevel){
+    if (buyUpgrade(goldenAppleUpgradeEl) && level <= maxLevel){
         upgradeData.goldenAppleUpgrade++;
         renderUpgradeData();
         storeUpgradeData();
     }
 })
+    
 
 lengthUpgradeEl.addEventListener("click", event => {
     let level = upgradeData.lengthUpgrade;
     let maxLevel = UPGRADES.lengthUpgrade.maxLevel;
-    if (level < maxLevel){
+    if (buyUpgrade(lengthUpgradeEl) && level <= maxLevel){
         upgradeData.lengthUpgrade++;
         renderUpgradeData();
         storeUpgradeData();
@@ -42,10 +44,9 @@ lengthUpgradeEl.addEventListener("click", event => {
 extendCanvasUpgradeEl.addEventListener("click", event => {
     let level = upgradeData.extendCanvasUpgrade;
     let maxLevel = UPGRADES.extendCanvasUpgrade.maxLevel;
-    if (level < maxLevel){
+    if (buyUpgrade(extendCanvasUpgradeEl) && level <= maxLevel){
         upgradeData.extendCanvasUpgrade++;
         numCols++;
-        updateCanvasSize();
         renderUpgradeData();
         storeUpgradeData();
     }
@@ -54,7 +55,7 @@ extendCanvasUpgradeEl.addEventListener("click", event => {
 speedUpgradeEl.addEventListener("click", event => {
     let level = upgradeData.speedUpgrade;
     let maxLevel = UPGRADES.speedUpgrade.maxLevel;
-    if (level < maxLevel) {
+    if (buyUpgrade(speedUpgradeEl) && level <= maxLevel){
         upgradeData.speedUpgrade++;
         updateSnakeSpeed();
         renderUpgradeData();
@@ -65,9 +66,9 @@ speedUpgradeEl.addEventListener("click", event => {
 appleUpgradeEl.addEventListener("click", event => {
     let level = upgradeData.appleUpgrade;
     let maxLevel = UPGRADES.appleUpgrade.maxLevel;
-    if (level < maxLevel){
+    if (buyUpgrade(appleUpgradeEl) && level <= maxLevel){
         upgradeData.appleUpgrade++;
-        appleValue = upgradeData.appleUpgrade;
+        appleValue++;
         renderUpgradeData();
         storeUpgradeData();
     }

@@ -65,4 +65,8 @@ document.addEventListener("keydown", (event) => {
         
 })
 
+playerData.appleCount = STARTING_APPLES;
+storeData();
+renderData();
+
 mainLoop();

@@ -19,7 +19,7 @@ function storeData(){
 
 function resetPlayerData(){
     playerData = {
-        appleCount:0,
+        appleCount: STARTING_APPLES,
         totalApples:0, 
         timesCrashed:0, 
         timesWon:0
@@ -44,10 +44,11 @@ function renderUpgradeData(){
         let level = upgradeData[key];
         let upgrade = UPGRADES[key];
         let upgradeCost = (level === upgrade.maxLevel) ? "MAX" : `${upgrade.cost * Math.pow(upgrade.multiplier, level - 1)}`;
-
+        
         el.querySelector(".upgrade-level").textContent = `${level}/${upgrade.maxLevel}`;
         el.querySelector(".upgrade-cost").textContent = upgradeCost;
         renderCurrent(el, level, upgrade);
+        
     })
 }
 
@@ -91,11 +92,11 @@ function resetUpgradeData(){
 }
 
 const UPGRADES = {
-    goldenAppleUpgrade: {maxLevel: 10, cost: 150, multiplier: 2},
-    lengthUpgrade: {maxLevel: 5, cost: 200, multiplier: 6},
-    extendCanvasUpgrade: {maxLevel: 5, cost: 300, multiplier: 4},
-    speedUpgrade: {maxLevel: 5, cost: 200, multiplier: 3, level1: 400, level2: 340, level3: 280, level4: 240, level5 : 220 },
-    appleUpgrade: {maxLevel: 8, cost: 100, multiplier: 2}
+    goldenAppleUpgrade: {maxLevel: 10, cost: 25, multiplier: 3},
+    lengthUpgrade: {maxLevel: 5, cost: 100, multiplier: 6},
+    extendCanvasUpgrade: {maxLevel: 5, cost: 150, multiplier: 4},
+    speedUpgrade: {maxLevel: 5, cost: 150, multiplier: 3, level1: 400, level2: 340, level3: 280, level4: 240, level5 : 220 },
+    appleUpgrade: {maxLevel: 8, cost: 25, multiplier: 3}
 }
 
 renderData()
