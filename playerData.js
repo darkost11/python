@@ -30,11 +30,11 @@ function resetPlayerData(){
 let upgradeData = JSON.parse(localStorage.getItem("upgradeData"))
 if (!upgradeData) resetUpgradeData();
 
-const goldenAppleUpgrade = document.querySelector(".item1");
-const lengthUpgrade = document.querySelector(".item2");
-const extendCanvasUpgrade = document.querySelector(".item3");
-const speedUpgrade = document.querySelector(".item4");
-const appleUpgrade = document.querySelector(".item5");
+const goldenAppleUpgrade = document.querySelector(".upgrade1");
+const lengthUpgrade = document.querySelector(".upgrade2");
+const extendCanvasUpgrade = document.querySelector(".upgrade3");
+const speedUpgrade = document.querySelector(".upgrade4");
+const appleUpgrade = document.querySelector(".upgrade5");
 
 function renderUpgradeData(){
     goldenAppleUpgrade.querySelector("span").textContent = `${upgradeData.goldenAppleUpgrade}/${UPGRADES.goldenAppleUpgrade.maxLevel}`;    

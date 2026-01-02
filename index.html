@@ -10,7 +10,7 @@
     <div class="canvas-container">
         <canvas id="canvas"></canvas>
         <div class="apple-count"> 
-            <span>0</span>
+            <span class="num-apples"></span>
             <img src="assets/apple.png">
         </div>
         <div class="pause">
@@ -25,31 +25,74 @@
         <div class="upgrades-container">
             <span id="upgrades-title">Upgrades</span>
             <div class="upgrades">
-                <div class="item item1"  data-tooltip="Adds a chance for a golden apple to appear instead of a normal one. Golden apples give 2x apples, and make the snake +2 longer.">
-                    <span></span>
-                    <img src="assets/golden-apple-upgrade.png">
+                <div class="upgrade upgrade1"> 
+                    <span class="upgrade-level"></span>
+                    <img class="upgrade-img" src="assets/golden-apple-upgrade.png">
+                    <div class="tooltip tooltip1">
+                        <span>Adds a chance for a golden apple to appear instead of a normal one. Golden apples give 2x apples, and make the snake +2 longer.</span>
+                        <span><br>Upgrade cost:</span>
+                        <span class="upgrade-cost"></span>
+                        <img class="upgrade-apple" src="assets/apple.png">
+                        <span><br>Current value:</span>
+                        <span class="upgrade-value"></span>
+                    </div>
                 </div>
-                <div class="item item2"  data-tooltip="The longer your snake is, the more apples you get. Apples doubled for every n'th segment of the snake.">
-                    <span></span>
-                    <img src="assets/length-upgrade.png">
+                <div class="upgrade upgrade2">
+                    <span class="upgrade-level"></span>
+                    <img class="upgrade-img" src="assets/length-upgrade.png">
+                    <div class="tooltip tooltip1">
+                        <span>The longer your snake is, the more apples you get. Apples doubled for every n'th segment of the snake.</span>
+                        <span><br>Upgrade cost:</span>
+                        <span class="upgrade-cost"></span>
+                        <img class="upgrade-apple" src="assets/apple.png">
+                        <span><br>Current value:</span>
+                        <span class="upgrade-value"></span>
+                    </div>
                 </div>
-                <div class="item item3"  data-tooltip="Adds 1 row to the game field.">
-                    <span></span>
-                    <img src="assets/extend-canvas-upgrade.png">
+                <div class="upgrade upgrade3">
+                    <span class="upgrade-level"></span>
+                    <img class="upgrade-img" src="assets/extend-canvas-upgrade.png">
+                    <div class="tooltip tooltip1">
+                        <span>Adds 1 row to the game field.</span>
+                        <span><br>Upgrade cost:</span>
+                        <span class="upgrade-cost"></span>
+                        <img class="upgrade-apple" src="assets/apple.png">
+                        <span><br>Current value:</span>
+                        <span class="upgrade-value"></span>
+                    </div>
                 </div>
-                <div class="item item4"  data-tooltip="Makes the snake faster.">
-                    <span></span>
-                    <img src="assets/speed-upgrade.png">
+                <div class="upgrade upgrade4">
+                    <span class="upgrade-level"></span>
+                    <img class="upgrade-img" src="assets/speed-upgrade.png">
+                    <div class="tooltip tooltip1">
+                        <span>Makes the snake move faster.</span>
+                        <span><br>Upgrade cost:</span>
+                        <span class="upgrade-cost"></span>
+                        <img class="upgrade-apple" src="assets/apple.png">
+                        <span><br>Current value:</span>
+                        <span class="upgrade-value"></span>
+                    </div>
                 </div>
-                <div class="item item5"  data-tooltip="Adds 1 to apple base value.">
-                    <span></span>
-                    <img src="assets/apple-upgrade.png">
+                <div class="upgrade upgrade5">
+                    <span class="upgrade-level"></span>
+                    <img class="upgrade-img" src="assets/apple-upgrade.png">
+                    <div class="tooltip tooltip1">
+                        <span>Adds 1 to apple base value.</span>
+                        <span><br>Upgrade cost:</span>
+                        <span class="upgrade-cost"></span>
+                        <img class="upgrade-apple" src="assets/apple.png">
+                        <span><br>Current value:</span>
+                        <span class="upgrade-value"></span>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="apple-count multiplier" data-tooltip="Current apple will give you:">
-            <span></span>
+        <div class="apple-count multiplier">
+            <span class="bold"></span>
             <img src="assets/apple.png">
+            <div class="tooltip tooltip6">
+                <span>This apple's value:</span>
+            </div>
         </div>
     </div>
     <script src="playerData.js"></script>

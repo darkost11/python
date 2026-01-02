@@ -17,7 +17,7 @@
     left: calc(100% + 20px);
 
 }
-.apple-count span {
+.num-apples {
     font-size: 40px;
 }
 
@@ -70,24 +70,23 @@
     grid-template-columns: 100px 100px;
 }
 
-.item {
+.upgrade {
     position: relative;
     border: 2px brown solid;
     cursor: pointer;
 }
 
-.item img {
+.upgrade-img {
     width: 100px;
     height: 100px;
 }
-.item span {
+.upgrade-level {
     position: absolute;
     color: white;
 }
 
-.item::after {
+.tooltip {
     position: absolute;
-    content: attr(data-tooltip);
     padding: 6px;
     bottom: calc(100% + 6px);
     background-color: brown;
@@ -95,35 +94,40 @@
     left: 50%;
     transform: translate(-50%);
     width: max-content;
-    max-width: 250px;
+    max-width: 260px;
     visibility: hidden;
 }
 
-.item:hover::after {
+.upgrade:hover .tooltip {
     visibility: visible;
+}
+
+.upgrade-apple {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    top: 2px;
+}
+
+.upgrade-cost {
+    color: yellow;
+}
+.upgrade-value {
+    color: lightgreen;
 }
 
 .multiplier { 
     top: 540px;
 }
-.multiplier span {
-    font-weight: bold;
-}
-.multiplier::after {
-    position: absolute;
-    content: attr(data-tooltip);
-    padding: 6px;
-    bottom: calc(100% + 6px);
-    background-color: brown;
-    color: wheat;
-    left: 50%;
-    transform: translate(-50%);
-    width: max-content;
-    max-width: 90px;
-    visibility: hidden;
-}
 
-.multiplier:hover::after{
+.bold {
+    font-weight: bold;
+    font-size: 40px;
+}
+.tooltip6 {
+    left: 50px;
+}
+.multiplier:hover .tooltip{
     visibility: visible;
 }
 body {
