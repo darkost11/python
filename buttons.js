@@ -47,6 +47,7 @@ extendCanvasUpgradeEl.addEventListener("click", event => {
     if (buyUpgrade(extendCanvasUpgradeEl) && level <= maxLevel){
         upgradeData.extendCanvasUpgrade++;
         numCols++;
+        updateCanvasSize();
         renderUpgradeData();
         storeUpgradeData();
     }

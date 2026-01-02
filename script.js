@@ -40,10 +40,10 @@ function update(){
         playerData.timesCrashed++;
         location.reload();
     }
-    if (head.collides(apple))
+    else if (head.collides(apple))
         eatApple();
 
-    if (isTimeElapsed()){
+    else if (isTimeElapsed()){
         move();
     }
 }

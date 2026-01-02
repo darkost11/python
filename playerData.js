@@ -96,7 +96,7 @@ const UPGRADES = {
     lengthUpgrade: {maxLevel: 5, cost: 100, multiplier: 6},
     extendCanvasUpgrade: {maxLevel: 5, cost: 150, multiplier: 4},
     speedUpgrade: {maxLevel: 5, cost: 150, multiplier: 3, level1: 400, level2: 340, level3: 280, level4: 240, level5 : 220 },
-    appleUpgrade: {maxLevel: 8, cost: 25, multiplier: 3}
+    appleUpgrade: {maxLevel: 10, cost: 25, multiplier: 3}
 }
 
 renderData()
