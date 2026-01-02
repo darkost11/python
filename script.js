@@ -54,13 +54,13 @@ function mainLoop(){
 
 document.addEventListener("keydown", (event) => {
 
-    if ((event.key === "d" || event.key === "D") && lastState != States.left)
+    if ((event.key === "d" || event.key === "D" || event.key === "ArrowRight") && lastState != States.left)
         head.state = States.right;
-    else if ((event.key === "a" || event.key === "A") && lastState != States.right)
+    else if ((event.key === "a" || event.key === "A" || event.key === "ArrowLeft") && lastState != States.right)
         head.state = States.left; 
-    else if ((event.key === "s" || event.key === "S") && lastState != States.up)
+    else if ((event.key === "s" || event.key === "S" || event.key === "ArrowDown") && lastState != States.up)
         head.state = States.down;  
-    else if ((event.key === "w" || event.key === "W") && lastState != States.down) 
+    else if ((event.key === "w" || event.key === "W" || event.key === "ArrowUp") && lastState != States.down) 
         head.state = States.up;
         
 })

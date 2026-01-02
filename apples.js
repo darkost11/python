@@ -5,7 +5,7 @@ class Apple extends Segment{
         super(x, y, 0);
         this.isGolden = isGolden;
         this.value = (upgradeData.lengthUpgrade - 1) 
-            ? appleValue * Math.pow(2, Math.floor(1 + parts.length / (32 - 4*upgradeData.lengthUpgrade))) 
+            ? appleValue * Math.pow(2, Math.floor(parts.length / (28 - 4*(upgradeData.lengthUpgrade - 1)))) 
             : appleValue;
 
         if (isGolden){

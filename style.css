@@ -17,7 +17,7 @@
     left: calc(100% + 20px);
 
 }
-.num-apples {
+#num-apples {
     font-size: 40px;
 }
 

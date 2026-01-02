@@ -19,7 +19,7 @@ document.addEventListener("keydown", event => {
 
 // Upgrade buttons
 
-goldenAppleUpgrade.addEventListener("click", event => {
+goldenAppleUpgradeEl.addEventListener("click", event => {
     let level = upgradeData.goldenAppleUpgrade;
     let maxLevel = UPGRADES.goldenAppleUpgrade.maxLevel;
     if (level < maxLevel){
@@ -29,7 +29,7 @@ goldenAppleUpgrade.addEventListener("click", event => {
     }
 })
 
-lengthUpgrade.addEventListener("click", event => {
+lengthUpgradeEl.addEventListener("click", event => {
     let level = upgradeData.lengthUpgrade;
     let maxLevel = UPGRADES.lengthUpgrade.maxLevel;
     if (level < maxLevel){
@@ -39,7 +39,7 @@ lengthUpgrade.addEventListener("click", event => {
     }
 })
 
-extendCanvasUpgrade.addEventListener("click", event => {
+extendCanvasUpgradeEl.addEventListener("click", event => {
     let level = upgradeData.extendCanvasUpgrade;
     let maxLevel = UPGRADES.extendCanvasUpgrade.maxLevel;
     if (level < maxLevel){
@@ -51,7 +51,7 @@ extendCanvasUpgrade.addEventListener("click", event => {
     }
 })
 
-speedUpgrade.addEventListener("click", event => {
+speedUpgradeEl.addEventListener("click", event => {
     let level = upgradeData.speedUpgrade;
     let maxLevel = UPGRADES.speedUpgrade.maxLevel;
     if (level < maxLevel) {
@@ -62,7 +62,7 @@ speedUpgrade.addEventListener("click", event => {
     }
 })
 
-appleUpgrade.addEventListener("click", event => {
+appleUpgradeEl.addEventListener("click", event => {
     let level = upgradeData.appleUpgrade;
     let maxLevel = UPGRADES.appleUpgrade.maxLevel;
     if (level < maxLevel){

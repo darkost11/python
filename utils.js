@@ -23,21 +23,8 @@ function isTimeElapsed(){
 }
 
 function updateSnakeSpeed(){
-    switch(upgradeData.speedUpgrade){
-        case 1:
-            INTERVAL_MS = UPGRADES.speedUpgrade.level1;
-            break;
-        case 2:
-            INTERVAL_MS = UPGRADES.speedUpgrade.level2;
-            break;
-        case 3:  
-            INTERVAL_MS = UPGRADES.speedUpgrade.level3;
-            break;
-        case 4:
-            INTERVAL_MS = UPGRADES.speedUpgrade.level4;
-            break;
-        case 5:
-            INTERVAL_MS = UPGRADES.speedUpgrade.level5;
-    }
+    let level = upgradeData.speedUpgrade;
+    INTERVAL_MS = UPGRADES.speedUpgrade["level" + level];    
 }
+
 
