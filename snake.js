@@ -133,15 +133,16 @@ function renderSnakeLength(){
     infoEls.forEach(el => {
         el.textContent = `${getSnakeLength()}`;
     })
-    
+    let multiplierEl = document.querySelector(".multiplier");
+    let remainderEl = document.querySelector(".remainder");
+    let multiplierTextEl = document.querySelector(".multiplier-text");
     if (upgradeData.lengthUpgrade > 1) {
-        let multiplierEl = document.querySelector(".multiplier");
-        let remainderEl = document.querySelector(".remainder");
-        let multiplierTextEl = document.querySelector(".multiplier-text");
+        
         multiplierTextEl.innerHTML = "<br>Apples multiplied by: "
         multiplierEl.textContent = getMultiplier();
         remainderEl.textContent = ` (${getSnakeLength() % getLengthToDouble()}/${getLengthToDouble()})`;
-    }
+    } 
+    else multiplierEl.textContent = remainderEl.textContent = multiplierTextEl.textContent = "";
 }
 
 function draw(){
