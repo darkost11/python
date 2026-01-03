@@ -5,8 +5,7 @@ class Apple extends Segment{
         super(x, y, 0);
         this.isGolden = isGolden;
         this.value = (upgradeData.lengthUpgrade - 1) 
-            ? appleValue * Math.pow(2, Math.floor(parts.length / (28 - 4*(upgradeData.lengthUpgrade - 1)))) 
-            : appleValue;
+            ? appleValue * getMultiplier() : appleValue;
 
         if (isGolden){
             this.image.src = "assets/golden-apple.png";
@@ -17,6 +16,10 @@ class Apple extends Segment{
             this.size = 160;
         }
     }
+}
+
+function getMultiplier(){
+    return Math.floor(Math.pow(2, (getSnakeLength()) / (28 - 4*(upgradeData.lengthUpgrade - 1))));
 }
 
 function summonApple(){
@@ -42,6 +45,7 @@ function eatApple(){
     playerData.totalApples++;
     storeData();
     renderAppleValue();
+    renderSnakeLength();
 }
 
 function addApples(apple){
@@ -58,9 +62,9 @@ function resetApples(){
 }
 
 function renderAppleValue(){
-    let appleMultiplier = document.querySelector(".multiplier");
-    appleMultiplier.querySelector("span").textContent = `${apple.value}x`;
-    appleMultiplier.querySelector("img").src = apple.image.src;
+    let infoEl = document.querySelector(".info .item1");
+    infoEl.querySelector("span").textContent = `${apple.value}x`;
+    infoEl.querySelector("img").src = apple.image.src;
 }
 
 function getUpgradeCost(upgradeEl){

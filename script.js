@@ -11,10 +11,12 @@ updateCanvasSize();
 renderData();
 renderUpgradeData();
 
+
 const spriteSize = cellSize;
 const head = new RotatingSegment(spriteSize, 0, Sprites.head);
 const tail = new RotatingSegment(0, 0, Sprites.tailEven);
 const parts = [head, tail];
+renderSnakeLength();
 
 let hiddenSegment = null;
 let tailSprite = Sprites.tailEven;
@@ -26,7 +28,7 @@ let hasEnded = false;
 function update(){
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     draw();
-    if (parts.length >= numRows * numCols && !hasEnded){
+    if (getSnakeLength() >= numRows * numCols && !hasEnded){
         hasEnded = true;
         playerData.timesWon++;
         storeData();

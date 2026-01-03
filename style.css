@@ -96,6 +96,7 @@
     width: max-content;
     max-width: 260px;
     visibility: hidden;
+    font-size: 16px;
 }
 
 .upgrade:hover .tooltip {
@@ -116,19 +117,69 @@
     color: lightgreen;
 }
 
-.multiplier { 
-    top: 540px;
-}
-
 .bold {
     font-weight: bold;
     font-size: 40px;
 }
-.tooltip6 {
-    left: 50px;
+.snake-length {
+    left: calc(100% + 60px);
+    bottom: 0%;
+    font-weight: bold;
 }
-.multiplier:hover .tooltip{
+
+.tooltip .snake-length {
+    color: lightgreen;
+}
+
+.info {
+    position: absolute;
+    display: grid;
+    grid-auto-columns: auto;
+    grid-template-rows: auto;
+    grid-auto-flow: column;
+    left: calc(100% + 20px);
+    top: 530px;
+    font-size: 40px;
+    gap: 10px;
+}
+
+.info img {
+    width: 58px;
+    height: 58px
+}
+
+.info .item {
+    display: flex;
+    align-items: center;
+}
+
+.item1 {
+    position: relative;
+}
+
+.item1 img {
+    position: relative;
+    bottom: 4px;
+}
+
+.item2 {
+    position: relative;
+}
+
+.item1:hover .tooltip6{
     visibility: visible;
+}
+
+.item2:hover .tooltip7{
+    visibility: visible;
+}
+
+.multiplier {
+    color: yellow;
+    font-weight: bold;
+}
+.remainder {
+    font-weight: normal;
 }
 body {
     background-color: burlywood;

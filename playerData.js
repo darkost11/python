@@ -99,5 +99,13 @@ const UPGRADES = {
     appleUpgrade: {maxLevel: 10, cost: 25, multiplier: 3}
 }
 
+if (RESET_UPGRADES){
+    resetUpgradeData();
+}
+
+if (RESET_PLAYER_DATA){
+    resetPlayerData();
+}
+
 renderData()
 renderUpgradeData()

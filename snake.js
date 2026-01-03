@@ -69,14 +69,14 @@ function incrementSnake(){
     hiddenSegment = newPart;
 
     tailSprite = (isSegEven) ? Sprites.tailOdd : Sprites.tailEven;
-    parts.splice(parts.length-1, 1, newPart, tail);
+    parts.splice(parts.length - 1, 1, newPart, tail);
 }
 
 function move(){
     if (timesIncrement > 0) {
         incrementSnake();
         timesIncrement--;
-        console.log(parts.length);
+        renderSnakeLength();
     }
     lastState = head.state;
     switch(head.state){
@@ -119,6 +119,24 @@ function isCollisionDetected(){
         (head.y < 0) || (head.y) >= canvasHeight)
         return true;
     return false;
+}
+
+function getLengthToDouble(){
+    return 28 - 4*(upgradeData.lengthUpgrade - 1);
+}
+function getSnakeLength(){
+    return parts.length + timesIncrement; 
+}
+
+function renderSnakeLength(){
+    let infoEls = document.querySelectorAll(".snake-length");
+    infoEls.forEach(el => {
+        el.textContent = `${getSnakeLength()}`;
+    })
+    let multiplierEl = document.querySelector(".multiplier");
+    let remainderEl = document.querySelector(".remainder");
+    multiplierEl.textContent = getMultiplier();
+    remainderEl.textContent = ` (${getSnakeLength() % getLengthToDouble()}/${getLengthToDouble()})`;
 }
 
 function draw(){
