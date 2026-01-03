@@ -138,7 +138,7 @@
     grid-template-rows: auto;
     grid-auto-flow: column;
     left: calc(100% + 20px);
-    top: 530px;
+    top: 510px;
     font-size: 40px;
     gap: 10px;
 }

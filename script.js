@@ -8,9 +8,8 @@ let canvasWidth = numCols * cellSize;
 let canvasHeight = numRows * cellSize;
 
 updateCanvasSize();
-renderData();
+renderPlayerData();
 renderUpgradeData();
-
 
 const spriteSize = cellSize;
 const head = new RotatingSegment(spriteSize, 0, Sprites.head);
@@ -21,7 +20,7 @@ renderSnakeLength();
 let hiddenSegment = null;
 let tailSprite = Sprites.tailEven;
 let lastState = States.right;
-
+let stopSnake = 0;
 let apple = summonApple();
 renderAppleValue();
 let hasEnded = false;
@@ -32,7 +31,7 @@ function update(){
         hasEnded = true;
         playerData.timesWon++;
         storeData();
-        renderData();
+        renderPlayerData();
         alert("You won!")
         location.reload();
     }
@@ -40,7 +39,7 @@ function update(){
         hasEnded = true;
         playerData.timesCrashed++;
         storeData();
-        renderData();
+        renderPlayerData();
         alert('You died!');
         location.reload();
     }

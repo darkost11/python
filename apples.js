@@ -43,6 +43,7 @@ function eatApple(){
     addApples(apple);
     apple = summonApple();
     playerData.totalApples++;
+    updatePeakLength();
     storeData();
     renderAppleValue();
     renderSnakeLength();
@@ -50,14 +51,14 @@ function eatApple(){
 
 function addApples(apple){
     playerData.appleCount += apple.value;
-    renderData();
+    renderPlayerData();
     storeData();
 }
 
 function resetApples(){
     playerData.appleCount = 0;
     playerData.totalApples = 0;
-    renderData();
+    renderPlayerData();
     storeData();
 }
 
@@ -74,7 +75,7 @@ function getUpgradeCost(upgradeEl){
 function buyUpgrade(upgradeEl){
     if (playerData.appleCount >= getUpgradeCost(upgradeEl)) {
         playerData.appleCount -= getUpgradeCost(upgradeEl);
-        renderData();
+        renderPlayerData();
         storeData();
         return 1;
     }

@@ -144,6 +144,13 @@ function renderSnakeLength(){
     } 
     else multiplierEl.textContent = remainderEl.textContent = multiplierTextEl.textContent = "";
 }
+function updatePeakLength(){
+    let currentPeak = playerData.peakLength;
+    let currentLength = getSnakeLength();
+    playerData.peakLength = Math.max(currentPeak, currentLength);
+    storeData();
+    renderPlayerData();
+}
 
 function draw(){
     parts.forEach(part => {
