@@ -19,7 +19,7 @@ class Apple extends Segment{
 }
 
 function getMultiplier(){
-    return Math.floor(Math.pow(2, (getSnakeLength()) / (28 - 4*(upgradeData.lengthUpgrade - 1))));
+    return Math.pow(2, Math.floor((getSnakeLength()) / (28 - 4*(upgradeData.lengthUpgrade - 1))));
 }
 
 function summonApple(){
