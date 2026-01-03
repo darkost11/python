@@ -57,6 +57,7 @@ const Sprites = {
 }
 
 let timesIncrement = 0;
+
 function incrementSnake(){
 
     let isSegEven = parts.length % 2 === 0;
@@ -143,13 +144,8 @@ function updatePeakLength(){
     let currentPeak = playerData.peakLength;
     let currentLength = getSnakeLength();
     playerData.peakLength = Math.max(currentPeak, currentLength);
-    storeData();
+    storePlayerData();
     renderPlayerData();
-}
-
-function updateSnakeSpeed(){
-    let level = upgradeData.speedUpgrade;
-    INTERVAL_MS = UPGRADES.speedUpgrade["level" + level];    
 }
 
 function draw(){

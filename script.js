@@ -28,7 +28,7 @@ function update(){
     if (getSnakeLength() >= numRows * numCols && !hasEnded){
         hasEnded = true;
         playerData.timesWon++;
-        storeData();
+        storePlayerData();
         renderPlayerData();
         alert("You won!")
         location.reload();
@@ -36,7 +36,7 @@ function update(){
     else if (isCollisionDetected() && !hasEnded){
         hasEnded = true;
         playerData.timesCrashed++;
-        storeData();
+        storePlayerData();
         renderPlayerData();
         alert('You died!');
         location.reload();
@@ -63,7 +63,7 @@ document.addEventListener("keydown", (event) => {
         head.state = States.down;  
     else if ((event.key === "w" || event.key === "W" || event.key === "ArrowUp") && lastState != States.down) 
         head.state = States.up;
-        
+    
 })
 
 mainLoop();

@@ -1,7 +1,6 @@
-/** @type {HTMLButtonElement} */
-
 // Pause button
 
+/** @type {HTMLButtonElement} */
 const pauseBtn = document.querySelector(".pause img");
 if (stopSnake) pauseBtn.setAttribute("src", "assets/resume.png");
 else pauseBtn.setAttribute("src", "assets/pause.png");
@@ -59,7 +58,7 @@ speedUpgradeEl.addEventListener("click", event => {
     let maxLevel = UPGRADES.speedUpgrade.maxLevel;
     if (buyUpgrade(speedUpgradeEl) && level <= maxLevel){
         upgradeData.speedUpgrade++;
-        updateSnakeSpeed();
+        initSnakeSpeed();
         renderUpgradeData();
         storeUpgradeData();
     }
