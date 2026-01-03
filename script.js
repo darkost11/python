@@ -22,22 +22,24 @@ let lastState = States.right;
 
 let apple = summonApple();
 renderAppleValue();
-
+let hasEnded = false;
 function update(){
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     draw();
-    if (parts.length >= numRows * numCols){
+    if (parts.length >= numRows * numCols && !hasEnded){
+        hasEnded = true;
+        playerData.timesWon++;
         storeData();
         renderData();
         alert("You won!")
-        playerData.timesWon++;
         location.reload();
     }
-    if (isCollisionDetected()){
+    else if (isCollisionDetected() && !hasEnded){
+        hasEnded = true;
+        playerData.timesCrashed++;
         storeData();
         renderData();
-        alert("Game over!");
-        playerData.timesCrashed++;
+        alert('You died!');
         location.reload();
     }
     else if (head.collides(apple))
