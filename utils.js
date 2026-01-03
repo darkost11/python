@@ -22,9 +22,6 @@ function isTimeElapsed(){
     return 0;
 }
 
-function updateSnakeSpeed(){
-    let level = upgradeData.speedUpgrade;
-    INTERVAL_MS = UPGRADES.speedUpgrade["level" + level];    
-}
+
 
 

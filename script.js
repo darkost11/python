@@ -2,11 +2,10 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const canvasContainer = document.querySelector(".canvas-container");
-numCols += upgradeData.extendCanvasUpgrade - 1;
 
+numCols += upgradeData.extendCanvasUpgrade - 1;
 let canvasWidth = numCols * cellSize;
 let canvasHeight = numRows * cellSize;
-
 updateCanvasSize();
 renderPlayerData();
 renderUpgradeData();
@@ -17,7 +16,6 @@ const tail = new RotatingSegment(0, 0, Sprites.tailEven);
 const parts = [head, tail];
 renderSnakeLength();
 
-let hiddenSegment = null;
 let tailSprite = Sprites.tailEven;
 let lastState = States.right;
 let stopSnake = 0;

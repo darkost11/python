@@ -1,18 +1,3 @@
-const States = {
-    right: 0,
-    left: 180,
-    up: -90,
-    down: 90
-}
-
-const Sprites = {
-    tailOdd: 0,
-    tailEven: 70,
-    segOdd: 140,
-    segEven: 210,
-    head: 280    
-}
-
 class Segment{
     constructor(x, y, sprite){
         this.x = x;
@@ -22,7 +7,6 @@ class Segment{
         this.image = new Image();
         this.image.src = "assets/snake.png";
         this.size = 70;
-        this.hidden = false;
     }
 
     draw(){
@@ -57,6 +41,20 @@ class RotatingSegment extends Segment{
         ctx.restore();
     }
 }
+const States = {
+    right: 0,
+    left: 180,
+    up: -90,
+    down: 90
+}
+
+const Sprites = {
+    tailOdd: 0,
+    tailEven: 70,
+    segOdd: 140,
+    segEven: 210,
+    head: 280    
+}
 
 let timesIncrement = 0;
 function incrementSnake(){
@@ -65,8 +63,6 @@ function incrementSnake(){
     let sprite = (isSegEven) ? Sprites.segEven : Sprites.segOdd
     let newPart = new Segment(tail.x, tail.y, sprite);
     newPart.state = tail.state;
-    newPart.hidden = true;
-    hiddenSegment = newPart;
 
     tailSprite = (isSegEven) ? Sprites.tailOdd : Sprites.tailEven;
     parts.splice(parts.length - 1, 1, newPart, tail);
@@ -97,7 +93,6 @@ function move(){
             head.y += spriteSize;
             break; 
     }
-    if (hiddenSegment) hiddenSegment.hidden = false;
     tail.sprite = tailSprite;
 }
 
@@ -152,9 +147,14 @@ function updatePeakLength(){
     renderPlayerData();
 }
 
+function updateSnakeSpeed(){
+    let level = upgradeData.speedUpgrade;
+    INTERVAL_MS = UPGRADES.speedUpgrade["level" + level];    
+}
+
 function draw(){
     parts.forEach(part => {
-        if (!part.hidden) part.draw();
+        part.draw();
     })
     apple.draw();
 }

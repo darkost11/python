@@ -1,5 +1,3 @@
-let appleValue = upgradeData.appleUpgrade;
-
 class Apple extends Segment{
     constructor(x, y, isGolden){
         super(x, y, 0);
@@ -17,6 +15,8 @@ class Apple extends Segment{
         }
     }
 }
+
+let appleValue = upgradeData.appleUpgrade;
 
 function getMultiplier(){
     return Math.pow(2, Math.floor((getSnakeLength()) / (28 - 4*(upgradeData.lengthUpgrade - 1))));
