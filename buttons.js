@@ -38,6 +38,7 @@ lengthUpgradeEl.addEventListener("click", event => {
         upgradeData.lengthUpgrade++;
         renderUpgradeData();
         storeUpgradeData();
+        renderSnakeLength();
     }
 })
 
