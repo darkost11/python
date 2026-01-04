@@ -1,13 +1,14 @@
 // Pause button
 
 /** @type {HTMLButtonElement} */
-const pauseBtn = document.querySelector(".pause img");
-if (stopSnake) pauseBtn.setAttribute("src", "assets/resume.png");
-else pauseBtn.setAttribute("src", "assets/pause.png");
+const pauseBtn = document.querySelector(".pause");
+const pauseImg = document.querySelector(".pause img")
+if (stopSnake) pauseImg.setAttribute("src", "assets/resume.png");
+else pauseImg.setAttribute("src", "assets/pause.png");
 function updatePause(){
 stopSnake = (stopSnake + 1) % 2;
-    if (stopSnake) pauseBtn.setAttribute("src", "assets/resume.png");
-    else pauseBtn.setAttribute("src", "assets/pause.png");
+    if (stopSnake) pauseImg.setAttribute("src", "assets/resume.png");
+    else pauseImg.setAttribute("src", "assets/pause.png");
 }
 pauseBtn.addEventListener("click", updatePause);
 document.addEventListener("keydown", event => {
