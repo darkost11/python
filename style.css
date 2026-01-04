@@ -229,10 +229,7 @@
     }
 
     .select-speed {
-        position: absolute;
-        top: 960px;
-        width: 100px;
-        height: 60px;
+        height: 100%;
     }
         
     .button {

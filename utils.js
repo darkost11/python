@@ -1,5 +1,5 @@
 const SPEED_PRESETS = {
-    steady: 400,
+    slow: 400,
     nimble: 340,
     swift: 280,
     whirlwind: 240,

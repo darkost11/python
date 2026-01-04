@@ -103,7 +103,7 @@ function renderCurrent(el, level, upgrade){
                 value = `+${level - 1} columns`;
             break
         case UPGRADES.speedUpgrade:
-            value = ["steady", "nimble", "swift", "whirlwind", "supersonic"].at(upgradeData.speedUpgrade - 1);
+            value = ["slow", "nimble", "swift", "whirlwind", "supersonic"].at(upgradeData.speedUpgrade - 1);
             break;
         case UPGRADES.appleUpgrade:
             value = `${level}`;
