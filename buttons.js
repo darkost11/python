@@ -15,6 +15,10 @@ document.addEventListener("keydown", event => {
         updatePause()
 })
 
+const upBtn = document.querySelector(".button-up");
+const leftBtn = document.querySelector(".button-left");
+const rightBtn = document.querySelector(".button-right");
+const downBtn = document.querySelector(".button-down");
 
 // Upgrade buttons
 
@@ -73,4 +77,24 @@ appleUpgradeEl.addEventListener("click", event => {
         renderUpgradeData();
         storeUpgradeData();
     }
+})
+
+upBtn.addEventListener("click", event => {
+    if (lastState != States.down) 
+        head.state = States.up;
+})
+
+leftBtn.addEventListener("click", event => {
+    if (lastState != States.right) 
+        head.state = States.left;
+})
+
+rightBtn.addEventListener("click", event => {
+    if (lastState != States.left) 
+        head.state = States.right;
+})
+
+downBtn.addEventListener("click", event => {
+    if (lastState != States.up) 
+        head.state = States.down;
 })
