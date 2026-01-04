@@ -189,6 +189,7 @@
 
 .buttons {
     display: none;
+    
 }
 
 @media (max-width: 768px) {
@@ -197,13 +198,14 @@
             transform-origin: top left;
         }
         .buttons {
-        display: grid;
-        grid-template-rows: repeat(3, 120px);
-        grid-template-columns: repeat(4, 90px);
-        position: absolute;
-        top: calc(100% + 40px);
-        left: calc(50%);
-        transform: translateX(-50%);
+            display: grid;
+            grid-template-rows: repeat(3, 160px);
+            grid-template-columns: repeat(4, 130px);
+            position: absolute;
+            top: calc(175%);
+            left: 125vw;
+            transform: translateX(-50%);
+            
         }
         
 
