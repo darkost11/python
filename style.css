@@ -117,7 +117,7 @@
     color: lightgreen;
 }
 
-#select-speed {
+.select-speed {
     position: relative;
     height: 30%;
 }

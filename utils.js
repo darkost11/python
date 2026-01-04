@@ -8,7 +8,7 @@ const SPEED_PRESETS = {
 let INTERVAL_MS;
 let lastTime = Date.now();
 let cur_included = 0;
-const selectSpeedEl = document.querySelector("#select-speed");
+const selectSpeedEl = document.querySelector(".select-speed");
 initSnakeSpeed();
 
 function updateCanvasSize(){
