@@ -1,9 +1,9 @@
 const SPEED_PRESETS = {
-    slow: 400,
-    nimble: 340,
-    swift: 280,
-    whirlwind: 240,
-    supersonic: 220
+    slow: 460,
+    nimble: 430,
+    swift: 390,
+    whirlwind: 350,
+    supersonic: 290,
 }
 let INTERVAL_MS;
 let lastTime = Date.now();
